@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  section#content
+    h2= text
+    if side === 'question'
+      p
+        i Hint: #{hint}
+      a(href=`${id}?side=answer`) Answer
+    else
+      a(href=`${id}`) Question
+
