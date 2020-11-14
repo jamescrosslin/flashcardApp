@@ -1,14 +1,29 @@
 extends layout
 
 block content
-  section#content
-    h2= text
+  section.flashcards
     if side === 'question'
-      p
-        i Hint: #{hint}
-      a(href=`${id}?side=answer`) Answer
+      .card.card-question
+        .card-header
+        h1.card-title Question
+        #content
+          h2= text
+            p#hint
+              i Hint: #{hint}
+      .card-flip-wrap
+        a(href=`${id}?side=answer`)
+          img.card-flip(src='/static/img/flip.svg')
     else
-      a(href=`${id}`) Question
-    br
-    a(href='/cards') Random Card
+      .card.card-answer
+        .card-header
+        h1.card-title Answer
+        #content
+          h2= text
+      .card-flip-wrap
+        a(href=`${id}?side=question`)
+          img.card-flip(src='/static/img/flip.svg')
+    .card-next
+      a(href=`/cards`)
+        img(src='/static/img/next.svg')
+    script(src="/static/js/app.js") 
 

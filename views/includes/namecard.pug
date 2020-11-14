@@ -1,0 +1,8 @@
+.namecard-hello
+  if name
+    p.namecard-greeting Welcome, #{name}!
+    form.namecard-exit(action='/goodbye', method='post')
+      button(type='submit')
+        img(src="/static/img/close.svg", alt="Goodbye Button")
+  else
+    p.namecard-greeting Hello, student!
