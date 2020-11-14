@@ -2,7 +2,6 @@ const express = require("express")
 const router = express.Router()
 
 const {
-  data,
   data: { cards }
 } = require("../data/flashcardData.json")
 
@@ -19,6 +18,7 @@ router.get("/:id", (req, res) => {
       side = "question"
     }
     res.locals = {
+      name: req.cookies.username,
       id,
       side,
       text: cards[id][side],
