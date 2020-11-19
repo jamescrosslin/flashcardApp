@@ -1,3 +1,4 @@
+const { response } = require("express")
 const express = require("express")
 const router = express.Router()
 
@@ -26,7 +27,11 @@ router.get("/:id", (req, res) => {
     }
     res.render(`card`)
   } catch (err) {
-    console.error(err.message)
+    if (res.locals.secondTry) {
+      return next(err)
+    }
+    console.error("Failed to route: " + err.message)
+    res.locals.secondTry = true
     res.redirect("/cards")
   }
 })
