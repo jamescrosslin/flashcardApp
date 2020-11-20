@@ -384,8 +384,6 @@ input {
 
 /* Flash Cards */
 .flashcards {
-  position: absolute;
-  top: 240px;
   right: 40%;
   left: 40%;
 }
@@ -476,18 +474,21 @@ input {
 }
 
 .card-flip-wrap {
-  position: absolute;
-  bottom: 10px;
-  left: 20px;
+  display: inline;
+  text-align: unset;
+  width: 20%;
 }
 
 .card-flip {
+  display: inline;
   max-width: 25px;
   background-color: #fff;
   border-radius: 50px;
   padding: 20px;
   border: 2px solid #fff;
   margin-top: 30px;
+  margin-right: 25%;
+  margin-bottom: 3%;
 }
 
 .card-flip:hover {
@@ -496,14 +497,15 @@ input {
 }
 
 .card-next {
-  position: absolute;
-  bottom: 25px;
-  right: 20px;
-  text-align: center;
+  display: inline;
+  text-align: unset;
   padding-top: 0px;
 }
 .card-next img {
   max-width: 30px;
+  padding-bottom: 20px;
+  margin-left: 25%;
+  margin-bottom: 3%;
 }
 
 .card-next a:link,
@@ -569,4 +571,10 @@ input {
   background-repeat: repeat-x;
   width: 100%;
   height: 24px;
+}
+
+@media screen and (max-width: 450px) {
+  .namecard {
+    max-width: 92%;
+  }
 }
